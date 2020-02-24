@@ -25,7 +25,7 @@ var uploadCmd = &cobra.Command{
 		if err != nil {
 			cmd.PrintErr(err)
 		} else {
-			cmd.Println(string(res))
+			cmd.Print(string(res))
 		}
 	},
 }
@@ -42,7 +42,18 @@ var invokeCmd = &cobra.Command{
 	Use: "invoke",
 	Short: "invoke a function with name and payload",
 	Run: func(cmd *cobra.Command, args []string) {
-
+		cmd.Println("start invoke function", funcName)
+		payload, err := os.Open(invokePayloadFile)
+		if err != nil {
+			cmd.PrintErr(err.Error())
+			return
+		}
+		res, err := invoke(jfConfig.ManagerAddr, funcName, payload)
+		if err != nil {
+			cmd.PrintErr(err)
+		} else {
+			cmd.Print(string(res))
+		}
 	},
 }
 

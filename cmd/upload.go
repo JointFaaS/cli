@@ -21,6 +21,7 @@ func upload(managerAddr string, funcName string, sourceZip string, env string) (
 	if err != nil {
 		return nil, err
 	}
+
     _, err = io.Copy(formFile, file)
     if err != nil {
         return nil, err
@@ -40,7 +41,6 @@ func upload(managerAddr string, funcName string, sourceZip string, env string) (
         return nil, err
 	}
 	
-    //req.Header.Set("Content-Type","multipart/form-data")
     req.Header.Add("Content-Type", writer.FormDataContentType())
 	
     resp, err := http.DefaultClient.Do(req)
