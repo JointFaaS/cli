@@ -27,6 +27,7 @@ func upload(managerAddr string, funcName string, sourceZip string, env string) (
     }
 
     _ = writer.WriteField("funcName", funcName)
+	_ = writer.WriteField("env", env)
 
     err = writer.Close()
     if err != nil {
