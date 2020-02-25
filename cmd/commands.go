@@ -34,7 +34,13 @@ var deleteCmd = &cobra.Command{
 	Use:	"delete",
 	Short: "delete function",
 	Run: func(cmd *cobra.Command, args []string) {
-
+		cmd.Println("start delete function", funcName)
+		res, err := deleteFunc(jfConfig.ManagerAddr, funcName)
+		if err != nil {
+			cmd.PrintErr(err)
+		} else {
+			cmd.Print(string(res))
+		}
 	},
 }
 
