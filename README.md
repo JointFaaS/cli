@@ -1,2 +1,2 @@
 # cli
-CLI Tool for manage functions
+CLI Tool for function management
