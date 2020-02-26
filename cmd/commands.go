@@ -18,7 +18,7 @@ var (
 
 var uploadCmd = &cobra.Command{
     Use:   "upload",
-	Short: "upload function with funcName, zipFile and env",
+	Short: "upload function with funcName, zipFile(or sourceDir) and env",
 	Run: func(cmd *cobra.Command, args []string) {
 		cmd.Println("start upload function", funcName, sourceZip, env)
 		res, err := upload(jfConfig.ManagerAddr, funcName, sourceZip, env)

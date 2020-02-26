@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"net/http"
-	"io"
 	"io/ioutil"
 )
 
